@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <center>
+    
+    
+    
+        <title>
+            Employee Details
+        </title>
+        
+        
+<SCRIPT type="text/javascript">
+    function myFunction(){
+        
+        var w=document.forms["myForm"]["fname"].value;
+        var x=document.forms["myForm"]["lname"].value;
+        var y=parseInt(document.forms["myForm"]["gross"].value);
+        var z=document.forms["myForm"]["address"].value;
+        var name=w+x;
+        var tax=0;
+        var netsalary=0;
+        
+        
+        if(w==""){
+            alert("Enter your full name");
+            return false;
+        }
+        else if(x==""){
+            alert("Enter your last name.");
+            return false;
+        }
+        else if(y==""){
+            alert("Enter your gross salary");
+            return false;
+        }
+        else if(z==""){
+            alert("Enter your address.");
+            return false;
+        }
+        else if(y<0){
+            alert("Gross Salary value shouldbe a positive number.");
+            return false;
+        }
+        else if(name.length>=15){
+            alert("Employee name cannot exceed 15 characters.");
+            return false;
+        }      
+    
+        
+         if(isNaN(y)){
+            alert("Enter salary in digits only");
+            //return false;
+        }       
+       else{
+       if(y< 180000){
+                    tax=0;
+                }
+        else if(y<=300000)
+        {
+            tax=y*0.1;
+            
+        }       
+        else if(y<=500000)
+        {
+            tax=y*0.2;
+            
+        }
+        else if(y>500000)
+        {
+            tax=y*0.3;          
+        }
+        netsalary = y-tax;      
+         /* if((y>=180000)&&(y<300000)){
+                    
+                }
+          if((y>=300000)&&(y<500000)){
+                      tax=(y*(20/100));
+                      }
+           if((y>=500000){
+                      tax=(y*(30/100));
+                      }
+          netsalary = y-tax;
+         // document.writeln("Income Tax is "+tax);
+          //document.writeln("Net Salary is "+netsalary);
+        */
+        var newpage=window.open();
+        newpage.document.writeln(w+" "+x+" "+"Your income tax is "+tax+"<br>");
+        newpage.document.writeln();
+        newpage.document.writeln(w+" "+x+" Your Net Salary is "+netsalary);
+        }
+          
+          }
+</SCRIPT>
+
+    </head>
+        <body>
+            <table border="2">
+            <tr>
+            <td>
+            <center><h2>EMPLOYEE DETAILS</h2><br>    
+                <form action="" method="GET" name="myForm" >
+                    <table border="00" width="300">
+                       <tr><td>Title :</td><td><select><option value="Mr">Mr</option><option value="Ms">Ms</option> <option value="Mrs">Mrs</option></select></tr></td>
+  
+                      <tr><td>First Name :</td><td><input type="text" id="fname"></td></tr>
+                        <tr><td>Last Name :</td><td><input type="text" id="lname"></td></tr>
+                        <tr><td>Gross Salary :</td><td><input type="number" id="gross"></td></tr>
+                        <tr><td>Address :</td><td><textarea cols="20" rows="4" id="address"></textarea></td></tr>
+                </table>
+		<table>    
+    <td>     <button onclick="myFunction()"align="right">Salary Slip</button></center></td>
+           
+                </form>
+            </center>
+            </td>
+        </tr>
+        </table>
+        
+            
+        </body>
+        
+    
+</html>
+

@@ -1,0 +1,39 @@
+CREATE OR REPLCAE PROCEDURE query_emp
+(v_eno IN e,p.empno%TYPE, v_name OUT emp.ename%TYPE, v_sal OUT emp.sal%TYPE)
+IS
+BEGIN
+	SELECT ename, sal INTO v_name,vsal FROM emp
+where empno_v_eno;
+EXCEPTION
+WHEN NO_DATA_FOUND THEN
+RAISE_APPLICATION_ERROR(-20001,'Employee does not exist');
+END query_emp;
+
+
+
+create table empd(empid number, name varchar2(20), experience nummber, salary number)
+/
+insert into empd values(1,'Sachin',7,20000)
+insert into empd values(2,'Nilesh',3,10000)
+update empd set salary=salary+salary*.10 where experience>5;
+
+
+
+-------------------------------------
+
+
+DECLARE
+amount NUMBER;
+BEGIN
+PROCEDURENAME(1000001,amount);
+dbms_output.put_line(amount);
+END;
+
+------------------------------------------
+Q2 a)Update employees set employee_salary = Employee_salary * 1.1 
+Where (sysdate - date_of_joining) > 5;
+   b)Alter table employees
+Add col_name varchar2(40);
+   c)Select count( employee_code) from employees where Employee_salary > (select avg( Employee_salary) from employees;
+-----------------------------------------
+Q3 INSERT INTO employee VALUES (employee_code.NEXTVAL, employeename, sysdate, salary);
